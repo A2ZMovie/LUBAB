@@ -60,7 +60,7 @@ The **Hamster Kombat Key Generator** is a tool designed to help gamers generate 
   - Train Miner
   - MergeAway
   - Twerk Race
-- **Generate Promo Codes**: Generate up to 4 promo codes at a time.
+- **Generate Promo Codes**: Generate up to 1000 promo codes at a time.
 - **Responsive Design**: Fully optimized for both desktop and mobile devices.
 - **Progress Tracking**: Real-time progress tracking during key generation.
 - **Copy to Clipboard**: Easily copy generated promo codes to your clipboard.
@@ -70,7 +70,7 @@ For questions or support, reach out via [Telegram](https://telegram.me/Sam_Dm_bo
 
 ## Usage
 1. **Select a Game**: Choose a game from the dropdown list.
-2. **Select Number of Keys**: Choose the number of keys to generate (1 or 5).
+2. **Select Number of Keys**: Choose the number of keys to generate (1 or 1000).
 3. **Generate Keys**: Click the "Generate Keys" button to start the process.
 4. **Copy Keys**: Use the "Copy All Keys" button or individual copy buttons to copy the generated keys.
 
