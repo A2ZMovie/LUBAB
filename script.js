@@ -85,67 +85,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     const login = async (clientId, appToken) => {
-        const response = await fetch('https://api.gamepromo.io/promo/login-client', {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                appToken,
-                clientId,
-                clientOrigin: 'deviceid'
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to login');
-        }
-
-        const data = await response.json();
-        return data.clientToken;
-    };
-
-    const emulateProgress = async (clientToken, promoId) => {
-        const response = await fetch('https://api.gamepromo.io/promo/register-event', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${clientToken}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                promoId,
-                eventId: generateUUID(),
-                eventOrigin: 'undefined'
-            })
-        });
-
-        if (!response.ok) {
-            return false;
-        }
-
-        const data = await response.json();
-        return data.hasCode;
-    };
-
-    const generateKey = async (clientToken, promoId) => {
-        const response = await fetch('https://api.gamepromo.io/promo/create-code', {
-            method: 'POST',
-            headers: {
-                'Authorization': `Bearer ${clientToken}`,
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                promoId
-            })
-        });
-
-        if (!response.ok) {
-            throw new Error('Failed to generate key');
-        }
-
-        const data = await response.json();
-        return data.promoCode;
-    };
+    
 
     const generateUUID = () => {
         return 'xxxxxxxx-xxxx-4xxx-yxxx-xxxxxxxxxxxx'.replace(/[xy]/g, function (c) {
@@ -208,11 +148,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let clientToken;
     try {
         clientToken = await login(clientId, game.appToken);
-    } catch (error) {
-        alert(`Failed to login: ${error.message}`);
-        startBtn.disabled = false;
-        return null;
-    }
+    } 
 
     for (let i = 0; i < game.attemptsNumber; i++) {
         let countdown = game.eventsDelay / 10000  ;
@@ -246,11 +182,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const key = await generateKey(clientToken, game.promoId);
         updateProgress(30 / keyCount, 'Generating key...');
         return key;
-    } catch (error) {
-        alert(`Failed to generate key: ${error.message}`);
-        return null;
     }
-};
 
 
         const keys = await Promise.all(Array.from({ length: keyCount }, generateKeyProcess));
@@ -284,12 +216,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     copyStatus.innerText = `Copied ${key}`;
                     setTimeout(() => {
                         copyStatus.innerText = '';
-                    }, 2000);
-                }).catch(err => {
-                    console.error('Could not copy text: ', err);
-                });
-            });
-        });
+                    }, 2000);  }
 
         startBtn.disabled = false;
         keyCountSelect.classList.remove('hidden');
@@ -304,10 +231,7 @@ document.addEventListener('DOMContentLoaded', () => {
             setTimeout(() => {
                 copyStatus.innerText = '';
             }, 2000);
-        }).catch(err => {
-            console.error('Could not copy text: ', err);
-        });
-    });
+        }).
 
     document.getElementById('creatorChannelBtn').addEventListener('click', () => {
         window.open('https://telegram.me/Sam_Dm_bot', '_blank');
